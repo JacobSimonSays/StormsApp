@@ -1,5 +1,6 @@
 import streamlit as st
 import datetime
+from zoneinfo import ZoneInfo
 
 header = st.container()
 
@@ -15,7 +16,7 @@ with col3:
 		locked = True
 	elif status == 'Unlock':
 		locked = False
-	time = st.text('Last Locked: ' + datetime.datetime.now().strftime('%I:%M:%S'))
+	time = st.text('Last Locked: ' + datetime.datetime.now(ZoneInfo('America/Chicago')).strftime('%I:%M:%S'))
 with col1:
 	name = st.radio('Class', ['Bard', 'Cleric', 'Druid', 'Wizard'], disabled = locked) #['Barbarian', 'Bard', 'Cleric', 'Druid', 'Fighter', 'Monk', 'Rogue', 'Wizard'])
 	
