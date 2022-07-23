@@ -29,6 +29,48 @@ level_five = st.container()
 
 c1a, c1b, c1c, c2a, c2b, c2c, c3a, c3b, c3c, c4a, c4b, c4c, c5 = 0,0,0,0,0,0,0,0,0,0,0,0,0
 
+if name == 'Bard':
+	if level >= 1:
+		with level_one:
+			st.subheader('Level 1')
+			c1a = st.slider('Awe', 0, 3*level+level//5, disabled = locked)
+			c1b = st.slider('Mend', 0, 3*level, disabled = locked)
+			c1c = st.slider('Song of Evasion', 0, 3*level, disabled = locked)
+	if level >= 2:
+		with level_two:
+			st.subheader('Level 2')
+			c2a = st.slider('Confidence', 0, 3*(level-1), disabled = locked)
+			c2b = st.slider('Hurled Insult', 0, 3*(level-1), disabled = locked)
+			c2c = st.slider('Light Armor', 0, 1, disabled = locked)
+			c2d = st.slider('Song of Freedom', 0, 3*(level-1), disabled = locked)
+	if level >= 3:
+		with level_three:
+			st.subheader('Level 3')
+			c3a = st.slider('Fear', 0, 3*(level - 2)+level//5, disabled = locked)
+			c3b = st.slider('Inspiration',0, 3*(level - 2), disabled = locked)
+			c3c = st.slider('Song of Power', 0, 3*(level - 2), disabled = locked)
+	if level >= 4:
+		with level_four:
+			st.subheader('Level 4')
+			c4a = st.slider('Heroism', 0, 3*(level - 3), disabled = locked)
+			c4b = st.slider('Song of Disruption', 0, 3*(level - 3), disabled = locked)
+			c4c = st.slider('Terror', 0, 3*(level - 3)+level//5, disabled = locked)
+	if level == 5:
+		with level_five:
+			st.subheader('Level 5')
+			arch = st.radio('Archetype', ['None', 'Legend', 'Muse'], horizontal = True, disabled = locked)
+			if arch == 'None':
+				c5 = 0
+			elif arch == 'Legend':
+				c5 = 2
+				c4a,c3b,c2a,c1b = 2*c4a,2*c3b,2*c2a,2*c1b
+			elif arch == 'Muse':
+				c5 = 2
+				c3a,c1a = 2*c3a,2*c1a
+				if c4c > 0:
+					with error_box:
+						st.error('Selected Spells Violate Archetype')
+
 if name == 'Cleric':
 	if level >= 1:
 		with level_one:
@@ -100,14 +142,10 @@ if name == 'Druid':
 				c5 = 0
 			elif arch == 'Wild Heart':
 				c5 = 2
-				if c4a + c3a + c2a + c1a > 0:
-					with error_box:
-						st.error('Selected Spells Violate Archetype')
+				c4a,c3a,c2a,c1a = 2*c4a,2*c3a,2*c2a,2*c1a
 			elif arch == 'Avatar':
 				c5 = 2
-				if c4c + c3b + c2c + c1b > 0:
-					with error_box:
-						st.error('Selected Spells Violate Archetype')
+				c4c,c3b,c2c,c1b = 2*c4c,2*c3b,2*c2c,2*c1b
 
 if name == 'Wizard':
 	if level >= 1:
@@ -142,14 +180,13 @@ if name == 'Wizard':
 				c5 = 0
 			elif arch == 'Battlemage':
 				c5 = 2
-				if c4b + c3c + c2c + c1b > 0:
+				c3c,c2c,c1b = 2*c3c,2*c2c,2*c1b
+				if c4b > 0:
 					with error_box:
 						st.error('Selected Spells Violate Archetype')
 			elif arch == 'Evoker':
 				c5 = 2
-				if c4a + c4c + c3a + c3b + c2a + c2b + c1a + c1c > 0:
-					with error_box:
-						st.error('Selected Spells Violate Archetype')
+				ic4a,c4c,c3a,c3b,c2a,c2b,c1a,c1c = 2*c4a,2*c4c,2*c3a,2*c3b,2*c2a,2*c2b,2*c1a,2*c1c
 
 c4 = c5 + c4a + c4b + c4c
 c3 = c4 + c3a + c3b + c3c
