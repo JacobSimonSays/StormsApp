@@ -64,6 +64,7 @@ if name == 'Bard':
 			elif arch == 'Legend':
 				c5 = 2
 				c4a,c3b,c2a,c1b = 2*c4a,2*c3b,2*c2a,2*c1b
+				c4c,c3a,c1a = c4c-1,c3a-1,c1a-1
 			elif arch == 'Muse':
 				c5 = 2
 				c3a,c1a = 2*c3a,2*c1a
@@ -107,6 +108,7 @@ if name == 'Cleric':
 				c4b,c3b,c3c,c1b,c1c = 2*c4b,2*c3b,2*c3c,2*c1b,2*c1c
 			elif arch == 'Priest':
 				c5 = 2
+				c1b = 0
 				c4a,c3a,c2b = 2*c4a,2*c3a,2*c2b
 
 if name == 'Druid':
