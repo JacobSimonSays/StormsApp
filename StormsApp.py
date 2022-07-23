@@ -146,12 +146,12 @@ if name == 'Wizard':
 				c5 = 0
 			elif arch == 'Battlemage':
 				c5 = 2
-				if c4a + c4c + c3a + c3b + c2a + c2b + c1a + c1c > 0:
+				if c4b + c3c + c2c + c1b > 0:
 					with error_box:
 						st.error('Selected Spells Violate Archetype')
 			elif arch == 'Evoker':
 				c5 = 2
-				if c4b + c3c + c2c + c1b > 0:
+				if c4a + c4c + c3a + c3b + c2a + c2b + c1a + c1c > 0:
 					with error_box:
 						st.error('Selected Spells Violate Archetype')
 
