@@ -27,7 +27,7 @@ level_one, gap1, level_two = st.columns((2,1,2))
 level_three, gap2, level_four = st.columns((2,1,2))
 level_five = st.container()
 
-c1a, c1b, c1c, c2a, c2b, c2c, c3a, c3b, c3c, c4a, c4b, c4c, c5 = 0,0,0,0,0,0,0,0,0,0,0,0,0
+c1a, c1b, c1c, c2a, c2b, c2c, c2d, c3a, c3b, c3c, c4a, c4b, c4c, c5 = 0,0,0,0,0,0,0,0,0,0,0,0,0,0
 
 if name == 'Bard':
 	if level >= 1:
@@ -190,7 +190,7 @@ if name == 'Wizard':
 
 c4 = c5 + c4a + c4b + c4c
 c3 = c4 + c3a + c3b + c3c
-c2 = c3 + c2a + c2b + c2c
+c2 = c3 + c2a + c2b + c2c + c2d
 c1 = c2 + c1a + c1b + c1c
 
 l4 = 3/2*(abs(level-3)+(level-3))
