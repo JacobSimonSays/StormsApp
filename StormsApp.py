@@ -66,8 +66,6 @@ if name == 'Cleric':
 			elif arch == 'Priest':
 				c5 = 2
 				c4a,c3a,c2b = 2*c4a,2*c3a,2*c2b
-					with error_box:
-						st.error('Selected Spells Violate Archetype')
 
 if name == 'Druid':
 	if level >= 1:
