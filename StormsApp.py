@@ -62,12 +62,10 @@ if name == 'Cleric':
 				c5 = 0
 			elif arch == 'Necromancer':
 				c5 = 2
-				if c4b + c3b + c3c + c1b + c1c > 0:
-					with error_box:
-						st.error('Selected Spells Violate Archetype')
+				c4b,c3b,c3c,c1b,c1c = 2*c4b,2*c3b,2*c3c,2*c1b,2*c1c
 			elif arch == 'Priest':
 				c5 = 2
-				if c4a + c3a + c2b > 0:
+				c4a,c3a,c2b = 2*c4a,2*c3a,2*c2b
 					with error_box:
 						st.error('Selected Spells Violate Archetype')
 
